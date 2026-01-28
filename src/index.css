@@ -186,6 +186,7 @@ a:hover {
   padding: 96px 0;
   display: grid;
   align-items: center;
+  scroll-margin-top: 84px;
 }
 
 .eyebrow {
@@ -234,6 +235,27 @@ a:hover {
   }
   .grid2 {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: min(1120px, calc(100% - 28px));
+  }
+  .section {
+    padding: 68px 0;
+    scroll-margin-top: 92px;
+  }
+  .h1 {
+    font-size: clamp(36px, 10vw, 54px);
+  }
+  .h2 {
+    font-size: clamp(28px, 7.5vw, 40px);
+  }
+  .orb {
+    width: 82vw;
+    height: 82vw;
+    opacity: 0.45;
   }
 }
 
@@ -320,6 +342,20 @@ a:hover {
   align-items: center;
   width: min(1120px, calc(100% - 40px));
   margin-inline: auto;
+}
+
+@media (max-width: 520px) {
+  .topBar {
+    height: auto;
+    padding: 12px 0;
+  }
+  .topBarInner {
+    width: min(1120px, calc(100% - 28px));
+  }
+  /* Mobile header: keep it clean, avoid overflow */
+  .topBarInner > .btn {
+    display: none;
+  }
 }
 
 .brand {
@@ -446,7 +482,7 @@ a:hover {
   grid-template-columns: 1.2fr 0.9fr;
   gap: clamp(18px, 4vw, 56px);
   align-items: center;
-  padding-top: 48px;
+  padding-top: 72px;
 }
 
 .heroWord {
@@ -547,6 +583,15 @@ a:hover {
   }
 }
 
+@media (max-width: 600px) {
+  .heroInner {
+    padding-top: 74px;
+  }
+  .heroActions .btn {
+    width: 100%;
+  }
+}
+
 .chapterWash {
   position: absolute;
   inset: 0;
@@ -582,6 +627,13 @@ a:hover {
   padding: 10px 6px 16px;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 600px) {
+  .gallery {
+    grid-auto-columns: minmax(240px, 78vw);
+    padding: 10px 2px 14px;
+  }
 }
 
 .gallery::-webkit-scrollbar {
@@ -668,10 +720,28 @@ a:hover {
   }
 }
 
+@media (max-width: 600px) {
+  .photoCard {
+    min-height: 280px;
+  }
+  .photoMeta {
+    padding-top: 150px;
+  }
+}
+
 .timelineWrap {
   position: relative;
   margin-top: 36px;
   padding-left: 22px;
+}
+
+@media (max-width: 600px) {
+  .timelineWrap {
+    padding-left: 18px;
+  }
+  .timelineItem {
+    grid-template-columns: 14px 1fr;
+  }
 }
 
 .timelineLine {
