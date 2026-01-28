@@ -235,6 +235,7 @@ a:hover {
   }
   .grid2 {
     grid-template-columns: 1fr;
+    align-items: flex-start;
   }
 }
 
@@ -256,6 +257,14 @@ a:hover {
     width: 82vw;
     height: 82vw;
     opacity: 0.45;
+  }
+  .lead {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .chip {
+    font-size: 12px;
+    padding: 6px 9px;
   }
 }
 
@@ -807,6 +816,18 @@ a:hover {
   line-height: 1.65;
 }
 
+@media (max-width: 600px) {
+  .timelineCard {
+    padding: 12px 12px 10px;
+  }
+  .timelineTitle {
+    font-size: 20px;
+  }
+  .timelineCaption {
+    font-size: 14px;
+  }
+}
+
 .finaleBg {
   position: absolute;
   inset: -25%;
@@ -833,6 +854,20 @@ a:hover {
   position: relative;
   padding: clamp(18px, 4vw, 32px);
   overflow: hidden;
+}
+
+@media (max-width: 600px) {
+  .finaleInner {
+    padding: 18px 16px 22px;
+  }
+  .finaleActions {
+    flex-direction: column;
+  }
+  .finaleActions .btn,
+  .finaleActions .btnGhost {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 .finaleInner::before {
