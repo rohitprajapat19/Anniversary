@@ -190,7 +190,8 @@ a:hover {
   align-items: center;
   scroll-margin-top: 84px;
   /* Prevent oversized decorative layers from widening the page on mobile */
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
   isolation: isolate;
 }
 
@@ -207,6 +208,8 @@ a:hover {
   font-weight: 600;
   letter-spacing: 0.01em;
   margin: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .h1 {
@@ -225,6 +228,8 @@ a:hover {
   color: var(--muted);
   font-size: clamp(16px, 1.4vw, 18px);
   line-height: 1.7;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .grid2 {
@@ -641,6 +646,9 @@ a:hover {
   padding: 10px 6px 16px;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
+  /* Mobile swipe should scroll the gallery (not the page) */
+  touch-action: pan-x;
+  overscroll-behavior-x: contain;
 }
 
 @media (max-width: 600px) {
@@ -703,12 +711,16 @@ a:hover {
   font-weight: 600;
   letter-spacing: 0.02em;
   font-size: 22px;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .photoCaption {
   margin-top: 6px;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.6;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .photoShine {
