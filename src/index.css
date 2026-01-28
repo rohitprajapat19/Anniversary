@@ -191,7 +191,6 @@ a:hover {
   scroll-margin-top: 84px;
   /* Prevent oversized decorative layers from widening the page on mobile */
   overflow-x: hidden;
-  overflow-y: visible;
   isolation: isolate;
 }
 
@@ -642,9 +641,7 @@ a:hover {
   grid-auto-flow: column;
   grid-auto-columns: minmax(260px, 1fr);
   gap: 14px;
-  overflow-x: auto;
   padding: 10px 6px 16px;
-  scroll-snap-type: x mandatory;
 }
 
 @media (max-width: 600px) {
@@ -654,17 +651,11 @@ a:hover {
   }
 }
 
-.gallery::-webkit-scrollbar {
-  height: 10px;
-}
-.gallery::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.12);
-  border-radius: 999px;
-}
+
 
 .photoCard {
   position: relative;
-  scroll-snap-align: start;
+  /* scroll-snap-align: start; */
   overflow: hidden;
   min-height: 320px;
   padding: 18px;
