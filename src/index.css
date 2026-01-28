@@ -645,10 +645,6 @@ a:hover {
   overflow-x: auto;
   padding: 10px 6px 16px;
   scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  /* Mobile swipe should scroll the gallery (not the page) */
-  touch-action: pan-x;
-  overscroll-behavior-x: contain;
 }
 
 @media (max-width: 600px) {
