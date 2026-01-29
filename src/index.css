@@ -18,18 +18,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-html {
-  /* Ensure proper viewport scaling on mobile */
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-}
-
-/* Prevent horizontal overflow on mobile */
-body, #root, .container {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
 
 * {
   box-sizing: border-box;
@@ -60,8 +48,7 @@ body {
       transparent 55%
     ),
     linear-gradient(180deg, var(--bg0), var(--bg1));
-    overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden !important;
 }
 
 #root {
@@ -662,19 +649,11 @@ a:hover {
   .gallery {
     grid-auto-columns: minmax(240px, 78vw);
     padding: 10px 2px 14px;
-    overflow-x: auto; /* Add this for better scrolling */
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-  }
-  .gallery::-webkit-scrollbar {
-    display: none; /* Hide scrollbar on mobile */
   }
 }
 
-
-
 .photoCard {
   position: relative;
-  /* scroll-snap-align: start; */
   overflow: hidden;
   min-height: 320px;
   padding: 18px;
@@ -919,4 +898,106 @@ a:hover {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+}
+
+/* ========== REMOVE ALL SCROLLBARS ========== */
+::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+* {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+html, body, #root, .container, .section, .gallery {
+  -ms-overflow-style: none !important;
+}
+
+/* Ensure scrolling still works */
+html, body {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.gallery {
+  overflow: visible !important;
+}
+
+/* Hide any remaining scrollbar tracks */
+::-webkit-scrollbar-track {
+  display: none !important;
+}
+
+::-webkit-scrollbar-thumb {
+  display: none !important;
+}
+
+/* ========== MOBILE RESPONSIVENESS ========== */
+@media (max-width: 768px) {
+  /* Ensure content doesn't overflow */
+  body, .container, .section {
+    max-width: 100vw;
+    position: relative;
+  }
+  
+  /* Improve touch targets */
+  .btn, a, button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Prevent text overflow */
+  .h1, .h2, .lead, .photoTitle, .photoCaption {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  
+  /* Gallery adjustments for mobile without scrollbars */
+  .gallery {
+    display: grid;
+    grid-auto-flow: column;
+    overflow: visible !important;
+    gap: 12px;
+    padding: 0;
+  }
+  
+  /* Ensure mobile menu/header works */
+  .topBar {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+}
+
+@media (max-width: 600px) {
+  .btn {
+    min-height: 44px;
+    padding: 12px 20px;
+  }
+}
+
+/* iPhone notch safe areas */
+@supports (padding: max(0px)) {
+  .section, .container {
+    padding-left: max(20px, env(safe-area-inset-left));
+    padding-right: max(20px, env(safe-area-inset-right));
+  }
+  
+  .topBar {
+    padding-top: env(safe-area-inset-top);
+  }
+}
+
+/* Ensure proper viewport scaling on mobile */
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Prevent horizontal overflow on mobile */
+body, #root, .container {
+  max-width: 100vw;
 }
